@@ -1,0 +1,29 @@
+{
+    "name": "FB Redirect -- Redirects you away from Facebook",
+    "short_name": "FB Redirect",
+    "version": "0.0",
+    "manifest_version": 2,
+    "description": "Saves websites that you would rather visit and redirects you to those websites instead of Facebook",
+    "background": {
+    	"scripts": [
+    	    "scripts/purl.js",
+    	    "scripts/background.js"
+    	]
+    },
+    "browser_action": {
+	"default_popup": "html/popup.html",
+	"default_title": "FB Redirect"
+    },
+    "icons": {
+	"128": "images/icon.png"
+    },
+    // "options_page": "html/settings.html",
+    // "options_ui": {
+    // 	"page": "html/settings.html",
+    // 	"chrome_style": true
+    // },
+    "permissions": [
+	"storage",
+	"tabs"
+    ]
+}
