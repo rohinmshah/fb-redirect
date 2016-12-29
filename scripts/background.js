@@ -3,7 +3,7 @@
 var tabIdToUrlHostMap = {};
 
 function isFB(urlHost) {
-    return /.*facebook\.(com)|(org)/.test(urlHost);
+    return /.*facebook\.com/.test(urlHost);
 };
 
 function redirectTab(tabId) {

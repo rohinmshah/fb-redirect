@@ -35,7 +35,7 @@ function analyzeTab() {
 	var tab = arr[0];
 	var urlp = purl(tab.url);
 	// Check that its URL is from Craigslist and the path starts with "search"
-	if (/.*facebook\.(com)|(org)/.test(urlp.attr('host'))) {
+	if (/.*facebook\.com/.test(urlp.attr('host'))) {
 	    setMessageStr("Cannot save Facebook");
 	} else {
 	    setSaveButton(urlp);
