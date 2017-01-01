@@ -6,6 +6,12 @@ function isFB(urlHost) {
     return /.*facebook\.com/.test(urlHost);
 };
 
+function allowedPreviousUrlHost(urlHost) {
+    var fb = isFB(urlHost);
+    var messenger = /.*messenger\.com/.test(urlHost);
+    return fb || messenger;
+};
+
 function redirectTab(tabId) {
     chrome.storage.local.get({ websites : [] }, function (items) {
 	var websites = items.websites;
@@ -48,7 +54,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 	tabIdToUrlHostMap[tabId] = newUrlHost;
 
 	// If the user is already on Facebook, don't stop her from continuing to use Facebook
-	if (!(prevUrlHost && isFB(prevUrlHost))) {
+	if (!(prevUrlHost && allowedPreviousUrlHost(prevUrlHost))) {
 	    if (isFB(newUrlHost)) {
 		maybeRedirectTab();
 	    }
